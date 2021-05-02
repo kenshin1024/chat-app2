@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
   def index
-    @room = Room.find(params[:room_id])
     @message = Message.new
-    @massages = @room.messages.includes(:user)
+    @room = Room.find(params[:room_id])
+    @messages = @room.messages.includes(:user)
   end
 
   def create
